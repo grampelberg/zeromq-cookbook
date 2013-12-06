@@ -39,6 +39,7 @@ bash "install zeromq #{node[:zeromq][:src_version]}" do
     ./configure --prefix=#{node[:zeromq][:install_dir]} && \
     make -j #{node[:zeromq][:make_threads]} && \
     make install
+    ldconfig
   EOH
   not_if { ::FileTest.exists?("#{node[:zeromq][:install_dir]}/lib/libzmq.so") }
 end
