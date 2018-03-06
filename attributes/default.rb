@@ -20,3 +20,4 @@
 default[:zeromq][:src_version] = "2.0.8"
 default[:zeromq][:install_dir] = "/opt/zeromq-#{zeromq[:src_version]}"
 default[:zeromq][:src_mirror]  = "http://www.zeromq.org/local--files/area:download/zeromq-#{zeromq[:src_version]}.tar.gz"
+default[:zeromq][:make_threads] = node['cpu'] ? node['cpu']['total'].to_i : 2
